@@ -1,0 +1,11 @@
+.Main {
+    width: 100%;
+    height: 100%;
+    background: #E5E5E5;
+}
+
+.Main_container {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+}
