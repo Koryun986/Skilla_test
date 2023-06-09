@@ -1,0 +1,26 @@
+.SideBar_Row {
+    width: 100%;
+    height: 52px;
+    margin: 20px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.SideBar_Row:hover {
+    cursor: pointer;
+}
+
+.SideBar_Row_active {
+    position: relative;
+    margin-left: 0;
+    padding-left: 20px;
+    background: rgba(216, 228, 251, 0.32);
+}
+
+.SideBar_Row_active_indicator {
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    background: #002CFB;
+}

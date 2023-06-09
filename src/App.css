@@ -1,0 +1,7 @@
+.App {
+  width: 100%;
+  /* background-color: red; */
+  display: grid;
+  grid-template-areas: 
+    "SideBar Main Main Main Main Main";
+}

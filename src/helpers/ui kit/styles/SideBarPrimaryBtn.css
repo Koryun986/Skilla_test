@@ -1,0 +1,21 @@
+.SideBar_Primary_Btn {
+    position: relative;
+    width: 200px;
+    height: 52px;
+    border-radius: 4px;
+    background: #005FF8;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.SideBar_Primary_Btn :hover {
+    cursor: pointer;
+}
+
+.SideBar_Primary_Btn img {
+    position: absolute;
+    right: 15px;
+}
