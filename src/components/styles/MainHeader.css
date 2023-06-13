@@ -1,0 +1,40 @@
+.MainHeader {
+    width: 100%;
+    height: 64px;
+    background-color: #fff;
+}
+
+.MainHeader_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
+    column-gap: 10px;
+    align-items: center;
+}
+
+.MainHeader_date {
+    font-size: 15px;
+    color: #899CB1;
+}
+
+.HeaderUserInfo {
+    font-size: 14px;
+    color: #122945;
+}
+
+.MainHeader_search_icon {
+    justify-self: end;
+}
+
+.MainHeader_user {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+    font-size: 15px;
+    color: #899CB1;
+}
+
+.MainHeader_user_avatar img:first-of-type {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}

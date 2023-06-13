@@ -1,0 +1,55 @@
+.UserCallsInfo {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.UserAccountInfo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.UserAccount_Balance {
+    background: white;
+    padding: 10px 12px;
+    border-radius: 48px;
+    display: flex;
+    align-items: center;
+}
+
+.UserAccount_Balance span {
+    color: #899CB1;
+}
+
+.UserAccount_Balance img {
+    width: 24px;
+    height: 24px;
+    margin-left: 7px;
+}
+
+.UserAccount_Balance img:hover {
+    cursor: pointer;
+}
+
+.UserAccount_calls_start_day {
+    margin-left: 48px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.UserAccount_calls_start_day img {
+    cursor: pointer;
+}
+
+.UserAccount_calls_start_day span {
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.UserAccount_calls_start_day span span{
+    margin: 0 0 0 5px;
+    color: #005FF8;
+}
