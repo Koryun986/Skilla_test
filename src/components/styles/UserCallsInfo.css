@@ -53,3 +53,46 @@
     margin: 0 0 0 5px;
     color: #005FF8;
 }
+
+.UserCallsSort {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #899CB1;
+    font-size: 14px;
+    padding: 20px 0;
+}
+
+.UserCallsSort_search img {
+    margin-right: 10px;
+}
+
+.UserCallsSort_categories {
+    width: 60%;
+    justify-content: space-between;
+}
+
+.SortCategorie {
+    position: relative;
+}
+
+.SortCategorie :hover {
+    cursor: pointer;
+}
+
+.SortCategorie_options{
+    position: absolute;
+    top: 100%;
+    width: 100px;
+    height: 50px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #fff;
+    padding: 5px 15px ;
+    border-radius: 10px;
+}
+
+.SortCategorie_options div {
+    margin: 10px 0; 
+}

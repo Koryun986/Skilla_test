@@ -1,6 +1,12 @@
-export function convertDate(date) {
+export function formatDaysBeforeToDate (days) {
+  let date = new Date();
+  date.setDate(date.getDate() - days);
+  convertDate(date);
+}
+
+function convertDate(date) {
     const year = date.getFullYear().toString();
-    const month = (date.getMonth()+1).toString();
+    const month = (date.getMonth() + 1).toString();
     const day  = date.getDate().toString();
 
     const monthChars = month.split('');
