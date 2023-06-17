@@ -1,35 +1,44 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles/CallsLayout.css";
 import callsList from "../store/callsList";
 import { formatDaysBeforeToDate } from "../helpers/Config";
 import { observer } from "mobx-react-lite";
-import axios from "axios";
+import { Loader } from "../helpers/ui kit/Loader";
+import { CallsItem } from "./CallsItem";
 
 export const CallsLayout = observer(() => {
 
-  const fetchCalls = () => {
+  const [ callsData, setCallsData ] = useState([]);
+  const [ loading, setLoading ] = useState(false);
+  const [ error, setError ] = useState(null);
+  
+  const fetchCalls = async() => {
     const dateStart = formatDaysBeforeToDate(callsList.callsStartDate);
     const dateEnd = formatDaysBeforeToDate(0);
     const API_URL = `https://api.skilla.ru/mango/getList?date_start=${dateStart}&date_end=${dateEnd}`;
-    let myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer testtoken");
-    myHeaders.append("Cookie", "PHPSESSID=75vkq8bt7vchf8qef7ehor5els");
+    let fetchHeaders = new Headers();
+    fetchHeaders.append("Authorization", "Bearer testtoken");
 
     const requestOptions = {
       method: 'POST',
-      headers: myHeaders,
+      headers: fetchHeaders,
       redirect: 'follow'
     };
-
-    fetch(API_URL, requestOptions)
-    .then(response => response.json())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+    try {
+        setLoading(true);
+        const response = await fetch(API_URL, requestOptions);
+        setLoading(false);
+        const result = await response.json();
+        setCallsData(result.results );
+        console.log(result.results);
+    } catch (err) {
+        setError(err)
+    }
   }
 
   useEffect(() => {
     fetchCalls()
-  })
+  }, [callsList.callsStartDate])
 
   return (
   <div className="CallsLayout">
@@ -43,6 +52,12 @@ export const CallsLayout = observer(() => {
             <div>Оценка</div>
             <div>Длительность</div>
         </div>
+        { loading && 
+          <div className="flex_center">
+            <Loader /> 
+          </div>
+        }
+        {callsData && callsData.map(item => <CallsItem callObj={item} key={item.id} />)}
     </div>
   </div>);
 });

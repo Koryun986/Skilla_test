@@ -1,0 +1,16 @@
+.CallButton {
+    width: 70px;
+    height: 26px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.CallButton:hover {
+    cursor: pointer;
+}
+
+.CallGreenButton {
+    border: 1px solid #28A879;
+    background: #DBF8EF;
+    color: #28A879;
+}

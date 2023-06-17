@@ -2,7 +2,6 @@ import { makeAutoObservable } from "mobx";
 import { DEFAULT_CALLS_START_DAY } from "../helpers/Constants";
 
 class CallsList {
-    callsList = [];
     callsStartDate = DEFAULT_CALLS_START_DAY;
 
     constructor() {

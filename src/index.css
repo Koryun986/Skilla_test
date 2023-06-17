@@ -18,6 +18,12 @@ code {
   align-items: center;
 }
 
+.flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .mr10 {
   margin-right: 10px;
 }
