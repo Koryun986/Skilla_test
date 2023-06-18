@@ -56,7 +56,16 @@ export const CallsLayout = observer(() => {
             <Loader /> 
           </div>
         }
-        {callsData && callsData.map(item => <CallsItem callObj={item} key={item.id} />)}
+        {callsData && callsList.callsListSort ?
+         callsData.map(item => {
+          if(item?.status === callsList.callsListSort) {
+            return <CallsItem callObj={item} key={item.id} />
+          }
+          return;
+         })
+          :
+          callsData.map(item => <CallsItem callObj={item} key={item.id} />)
+        }
     </div>
   </div>);
 });

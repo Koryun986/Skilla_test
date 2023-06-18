@@ -1,8 +1,8 @@
 import React from "react";
 import "./styles/CallsLayout.css";
 import Circle from "./../helpers/ui kit/Circle.jsx";
-import iconInComingCall from "./../resorces/Calls/vxodyashiy.png";
-import iconOutGoingCall from "./../resorces/Calls/isxodyashiy.png";
+import iconInComingCall from "./../resorces/Calls/isxodyashiy.png";
+import iconOutGoingCall from "./../resorces/Calls/vxodyashiy.png";
 import iconCanceledCall from "./../resorces/Calls/otklonyon.png";
 import { CallGreenButton } from "../helpers/ui kit/CallButton";
 import { API_CALL_STATUS_IN_COMING, API_CALL_STATUS_OUT_GOING } from "../helpers/Constants";

@@ -11,10 +11,14 @@ export default function MainHeader() {
     const [currentDate, setCurrentDate] = useState("");
 
     useEffect(() => {
+        getFullCurrentDate();
+    }, []);
+    
+    const getFullCurrentDate = () => {
         const date = new Date();
-        const fullCurrentDate = weekDays[date.getDay() - 1] + ", " + date.getDate() + " " + months[date.getMonth()]
+        const fullCurrentDate = weekDays.at(date.getDay() - 1) + ", " + date.getDate() + " " + months.at(date.getMonth());
         setCurrentDate(fullCurrentDate);
-    });
+    }
 
     return (
     <div className="MainHeader">

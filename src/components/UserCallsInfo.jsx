@@ -96,7 +96,7 @@ const SortCategorie = ({options, sortFunction}) => {
       {options.length > 1 && activeOptions && 
         <div className="SortCategorie_options">
           { options.map(( item, index ) => (
-            <div onClick={() => setSort(index)}> {item} </div>
+            <div key={index} onClick={() => setSort(index)}> {item} </div>
           )) }
         </div>
       }
