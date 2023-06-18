@@ -5,13 +5,14 @@ import iconInComingCall from "./../resorces/Calls/vxodyashiy.png";
 import iconOutGoingCall from "./../resorces/Calls/isxodyashiy.png";
 import iconCanceledCall from "./../resorces/Calls/otklonyon.png";
 import { CallGreenButton } from "../helpers/ui kit/CallButton";
+import { API_CALL_STATUS_IN_COMING, API_CALL_STATUS_OUT_GOING } from "../helpers/Constants";
 
 export const CallsItem = ( { callObj } ) => {
 
     const greenColor = "#28A879";
     const callStatus = {
-        "Не дозвонился" : iconOutGoingCall,
-        "Дозвонился": iconInComingCall,
+        [API_CALL_STATUS_OUT_GOING] : iconOutGoingCall,
+        [API_CALL_STATUS_IN_COMING]: iconInComingCall,
     }
 
     const formatPhoneNumber = (num) => {
@@ -23,26 +24,26 @@ export const CallsItem = ( { callObj } ) => {
     <>  
         <div className="CallsItem_top_line"></div>
         <div className="CallsLayout_grid ">
-            <img src={callStatus[callObj.status]} />
-            <div className="CallsItem_time">{callObj.date.slice(-8,-3)}</div>
+            <img src={callStatus[callObj?.status]} />
+            <div className="CallsItem_time">{callObj?.date.slice(-8,-3)}</div>
             <img src={callObj.person_avatar} className="CallsItem_avatar" />
             <div className="CallsItem_phone_number">
                 {callObj.partner_data.name ? 
                     <> 
-                        <div>{callObj.partner_data.name}</div>
-                        <span>{callObj.partner_data.phone}</span>
+                        <div>{callObj?.partner_data?.name}</div>
+                        <span>{callObj?.partner_data?.phone}</span>
                     </> 
                         : 
                     <>              
-                        {formatPhoneNumber(callObj.partner_data.phone)}
+                        {formatPhoneNumber(callObj?.partner_data.phone)}
                     </>
                 }
             </div>
             <div className="CallsItem_source">
-                {callObj.source}
+                {callObj?.source}
             </div>
             <div className="CallsItem_record">
-                {!callObj.record ? 
+                {!callObj?.record ? 
                 <div className="flex_center">
                     <Circle color={greenColor} />
                     <Circle color={greenColor} />
@@ -50,7 +51,7 @@ export const CallsItem = ( { callObj } ) => {
                     <CallGreenButton />
                 </div>
                 :
-                callObj.record    
+                callObj?.record    
             }
             </div>
             <div className="CallsItem_call_time">

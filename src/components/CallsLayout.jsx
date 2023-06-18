@@ -30,7 +30,6 @@ export const CallsLayout = observer(() => {
         setLoading(false);
         const result = await response.json();
         setCallsData(result.results );
-        console.log(result.results);
     } catch (err) {
         setError(err)
     }

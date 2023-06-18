@@ -8,6 +8,7 @@ import iconDownArrow from "./../resorces/Header/arrow_down.png";
 import iconSearch from "./../resorces/Header/loop.png";
 import callsList from "../store/callsList";
 import { observer } from "mobx-react-lite";
+import { API_CALL_STATUS_IN_COMING, API_CALL_STATUS_OUT_GOING } from "../helpers/Constants";
 
 export default function UserCallsInfo() {
   return (
@@ -42,8 +43,22 @@ const UserAccountInfo = observer(() => {
   );
 })
 
-const UserCallsSort = () => {
-  const callsOptions = ["Все звонки", "Входящие звонки", "Исходящие звонки"]
+const UserCallsSort = observer(() => {
+  const callsOptions = ["Все звонки", API_CALL_STATUS_IN_COMING, API_CALL_STATUS_OUT_GOING];
+
+  const setCallsSort = (index) => {
+    switch(callsOptions[index]){
+      case(API_CALL_STATUS_IN_COMING):
+        callsList.setSortInComingCalls();
+        break;
+      case(API_CALL_STATUS_OUT_GOING):
+        callsList.setSortOutGoingCalls();
+        break;
+      default:
+        callsList.setNotSort();
+        break;
+    }
+  }
 
   return (
     <div className="UserCallsSort"> 
@@ -54,18 +69,23 @@ const UserCallsSort = () => {
       <div className="UserCallsSort_categories flex_align_center">
         <SortCategorie options={["Все типы"]} />
         <SortCategorie options={["Все сотрудники"]} />
-        <SortCategorie options={ callsOptions } />
+        <SortCategorie options={ callsOptions } sortFunction={setCallsSort}/>
         <SortCategorie options={["Все источники "]} />
         <SortCategorie options={["Все оценки"]} />
         <SortCategorie options={["Все ошибки"]} />
       </div>
     </div>
   )
-}
+})
 
-const SortCategorie = ({options}) => {
+const SortCategorie = ({options, sortFunction}) => {
   const [ activeOptions, setActiveOptions ] = useState(false);
   const [ defaultOptions, setDefaultOption ] = useState(0);
+
+  const setSort = (index) => {
+    setDefaultOption(index);
+    sortFunction(index);
+  }
 
   return (
     <div className="SortCategorie flex_align_center"> 
@@ -76,7 +96,7 @@ const SortCategorie = ({options}) => {
       {options.length > 1 && activeOptions && 
         <div className="SortCategorie_options">
           { options.map(( item, index ) => (
-            <div onClick={() => setDefaultOption(index)}> {item} </div>
+            <div onClick={() => setSort(index)}> {item} </div>
           )) }
         </div>
       }
